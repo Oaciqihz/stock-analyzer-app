@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "react-native-study",
-    "slug": "react-native-study",
+    "name": "stock-analyzer-app",
+    "slug": "stock-analyzer-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
