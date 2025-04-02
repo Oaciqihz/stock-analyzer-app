@@ -1,6 +1,4 @@
 
-
-
 export const siginInConfig: Type.Form[] = [
     {
         name: 'username',

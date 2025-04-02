@@ -3,7 +3,6 @@ import { Redirect, Stack } from "expo-router";
 
 import { useSession } from "../../components/ctx";
 import React from "react";
-import { ThemedView } from "@/components/ThemedView";
 import { StatusBar } from "expo-status-bar";
 
 export default function AppLayout() {

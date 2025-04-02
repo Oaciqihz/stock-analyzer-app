@@ -14,6 +14,7 @@ const MAPPING = {
   'chevron.left.forwardslash.chevron.right': 'code',
   'chevron.right': 'chevron-right',
   'newspaper.fill': 'newspaper',
+  'gearshape.fill': 'settings'
 } as Partial<
   Record<
     import('expo-symbols').SymbolViewProps['name'],

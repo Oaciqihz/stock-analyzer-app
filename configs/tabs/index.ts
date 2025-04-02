@@ -27,5 +27,11 @@ export const router: RouterProps[] = [
             title: 'News',
             tabBarIcon: "newspaper.fill",
         }
+    },{
+        name: 'config',
+        options: {
+            title: 'Config',
+            tabBarIcon: "gearshape.fill",
+        }
     }
 ]

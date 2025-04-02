@@ -4,8 +4,15 @@ import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { useEffect } from 'react';
 
+// TODO: 改為判斷是否有 llm config  ?  輸入框 : 輸入股票配置
 export default function HomeScreen() {
+
+  useEffect(() => {
+    
+  },[])
+
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}

@@ -33,7 +33,7 @@ export function SessionProvider({ children }: PropsWithChildren) {
     <AuthContext.Provider
       value={{
         signIn: (token) => {
-          // 寫入token redirect homepage
+          // 寫入token => redirect homepage
           setSession(token);
           router.replace('/');
         },
