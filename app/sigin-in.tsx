@@ -1,23 +1,30 @@
-import { router } from 'expo-router';
-import { Button, Text, View } from 'react-native';
+import { Button } from 'react-native';
 
 import { useSession } from '../components/ctx';
-import { ThemedText } from '@/components/ThemedText';
 import { useForm } from 'react-hook-form';
 import Form from '@/components/form';
 import { siginInConfig } from '@/configs/form/sigin-in';
 import { ThemedView } from '@/components/ThemedView';
+import { useState } from 'react';
 
 export default function SignIn() {
   const { signIn } = useSession();
   const { control, handleSubmit, formState: { errors } } = useForm();
+  const [isLoading, setIsLoading] = useState(false);
 
-  const onSubmit = (data: any) => {
+  const onSubmit = async (data: any) => {
     // 模拟表单提交
-    console.log('Submitted Data:', data);
-    // setSubmittedData(data);
-    // TODO: setToken
-    // signIn({})
+    // console.log('Submitted Data:', data);
+    // TODO: setToken mock token
+    
+    await new Promise<void>((resolve, reject) => {
+      setTimeout(() => {
+        resolve();
+      }, 3000);
+    })
+    .then(() => {
+      signIn("mock-token");
+    })
   };
 
   return (
@@ -37,9 +44,7 @@ export default function SignIn() {
           control={control}
           errors={errors}
         />
-        {/* <button onClick={}>提交</button> */}
         <Button title="Submit" onPress={handleSubmit(onSubmit)} />
-        {/* <Button>提交</Button> */}
     </ThemedView>
   );
 }
