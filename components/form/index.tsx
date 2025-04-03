@@ -1,7 +1,7 @@
 import React from "react";
 import { ThemedView } from "../ThemedView";
 import { Controller, Control, FieldValues } from "react-hook-form";
-import { TextInput, useColorScheme } from "react-native";
+import { StyleProp, TextInput, useColorScheme, ViewStyle } from "react-native";
 import { ThemedText } from "../ThemedText";
 import { StyleSheet } from "react-native";
 
@@ -9,17 +9,21 @@ export default function Form({
     formList,
     control,
     errors,
+    style,
+    itemStyle
 }: {
     formList: Type.Form[];
     control: Control<FieldValues, any, FieldValues>;
     errors: any;
+    style?: StyleProp<ViewStyle>;
+    itemStyle?: StyleProp<ViewStyle>;
 }) {
     const colorScheme = useColorScheme();
 
     return (
-        <ThemedView style={styles.container}>
+        <ThemedView style={style ? style : styles.container}>
             {formList.map((item, index) => (
-                <React.Fragment key={item.name}>
+                <ThemedView key={item.name} style={itemStyle}>
                     <Controller
                         control={control}
                         render={({ field }) => (
@@ -41,7 +45,7 @@ export default function Form({
                             {errors[item.name]?.message}
                         </ThemedText>
                     )}
-                </React.Fragment>
+                </ThemedView>
             ))}
         </ThemedView>
     );
@@ -53,10 +57,11 @@ const styles = StyleSheet.create({
         padding: 16,
     },
     input: {
+        width: "100%",
         height: 40,
         borderColor: "gray",
         borderWidth: 1,
-        marginBottom: 10,
+        // marginBottom: 10,
         padding: 8,
     },
     errorText: {
