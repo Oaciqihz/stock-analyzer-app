@@ -9,6 +9,7 @@ import { IconSymbol } from "@/components/ui/IconSymbol";
 import Form from "@/components/form";
 import { llmConfig } from "@/configs/form/llm";
 import { useForm } from "react-hook-form";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function ConfigScreen() {
     const {
@@ -19,15 +20,12 @@ export default function ConfigScreen() {
 
     const onSubmit = async (data: any) => {
         // 模拟表单提交
-        // console.log('Submitted Data:', data);
-        // TODO: setToken mock token
-
-        await new Promise<void>((resolve, reject) => {
+        await new Promise<void>(async(resolve, reject) => {
             setTimeout(() => {
                 resolve();
             }, 3000);
         }).then(() => {
-            // signIn("mock-token");
+            AsyncStorage.setItem('llmConfig', JSON.stringify(data));
         });
     };
 
@@ -36,7 +34,7 @@ export default function ConfigScreen() {
             style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
         >
             <Form formList={llmConfig} control={control} errors={errors} />
-            <Button title="Submit" onPress={handleSubmit(onSubmit)} />
+            <Button title="Update" onPress={handleSubmit(onSubmit)} />
         </ThemedView>
     );
 }
